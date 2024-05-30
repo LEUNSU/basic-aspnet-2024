@@ -87,3 +87,27 @@ IoT 개발자 ASP.NET 학습 리포지토리
         - 공간구분 태그
             - span - 한 줄로 공간구성
             - div - 행간으로 블록지정 공간구성
+
+## 2일차
+- HTML5
+    - 시맨틱 태그 - 시맨틱 태그로 화면 구조를 잡는 웹구성 방식
+        - header, main, content, nav, footer, aside, section, article... 구조 태그(화면에 안 나타남) 사용
+        - 시맨틱 태그를 div로 바꿔도 똑같이 동작하기때문에 요새는 많이 사용 안 함. 걷어내고 있는 추세
+- CSS3
+    - 웹 디자인 핵심, Casting Style Sheets
+    - 상단에서부터 <body>부터 하위의 태그들에 계속해서 적용되는 스타일이라는 뜻
+    - 선택자에게 주어지는 디자인 속성
+    - 선택자(selector)
+    - 속성(property)
+    - 배경, 폰트 ...
+    - 레이아웃
+        - HTML만으로는 화면 레이아웃이 만들어지지 않음
+        - 중앙정렬, 원트루, 고정바 ...
+    - 반응형 웹(Responsive Web)
+        - 메타태그 viewport를 사용하면 그때부터 반응형 웹이 됨!
+        ```html
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        ```
+        - @media 태그 : 디바이스 종류별로 CSS 따로 디자인 가능
+
+- Javascript
