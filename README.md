@@ -110,6 +110,7 @@ IoT 개발자 ASP.NET 학습 리포지토리
         ```
         - @media 태그 : 디바이스 종류별로 CSS 따로 디자인 가능
 
+## 3일차
 - Javascript
     - 스크립트 언어, ECMAScript
         - 웹 브라우저에서 주로 사용
