@@ -86,6 +86,7 @@
         .bg-slide .circle img {
             object-fit: cover;
             transform: rotate(0deg) scale(2);
+            opacity: 0;
             transition: transform 1.5s cubic-bezier(0.645, 0.045, 0.355, 1),
                         opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
@@ -221,7 +222,7 @@
             transform: rotate(360deg);
             pointer-events: none;
             transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-            transition-delay: 1s;
+            transition-delay: 0.1s;
         }
         
         .rotate-btn i {
