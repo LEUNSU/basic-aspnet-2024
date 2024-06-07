@@ -253,7 +253,7 @@ IoT 개발자 ASP.NET 학습 리포지토리
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/0f655e0b-de21-47dd-8921-65a8c76d546b
 
 
-    - 개인 웹페이지 클로닝
+    - 개인 웹페이지 클로닝(유튜브 애니메이션 웹페이지 튜토리얼 따라하기)
 
 
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/2e54f5f6-ce14-4c3e-8587-77c463a25762
