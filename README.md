@@ -224,42 +224,90 @@ IoT 개발자 ASP.NET 학습 리포지토리
             - 무료 테마(템플릿)가 아주 잘 되어 있음
                 - https://startbootstrap.com/
 
-        - 웹페이지 클로닝
-            - 핀터레스트 타입 + 부트스트랩 웹페이지 만들기(진행중)
+        - 웹 페이지 클로닝
+            - 핀터레스트 타입 + 부트스트랩 웹 페이지 만들기(진행중)
 
 ## 5일차
 - HTML + CSS + js(jQuery) 응용
-    - 웹페이지 클로닝
-        - 핀터레스트 타입 + 부트스트랩 웹페이지 만들기(완료)
+    - 웹 페이지 클로닝
+        - 핀터레스트 타입 + 부트스트랩 웹 페이지 만들기(완료)
 
 
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/15cd730f-defa-47c0-9b77-63f5ef8f9923
 
 
-        - Codehal 유튜버 로그인 웹페이지 튜토리얼 따라하기
+        - Codehal 유튜버 로그인 웹 페이지 튜토리얼 따라하기
 
         <img src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an001.png" width="800">
         <!-- ![이미지](https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an001.png) -->
 
 
-        - Codegal 슬라이더 애니메이션 웹페이지 튜토리얼 따라하기
+        - Codegal 슬라이더 애니메이션 웹 페이지 튜토리얼 따라하기
 
 ## 6일차
 - HTML + CSS + js(jQuery) 응용
-    - 웹페이지 클로닝
-        - Codegal 슬라이더 애니메이션 웹페이지 튜토리얼 따라하기(완료)
+    - 웹 페이지 클로닝
+        - Codegal 슬라이더 애니메이션 웹 페이지 튜토리얼 따라하기(완료)
 
 
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/0f655e0b-de21-47dd-8921-65a8c76d546b
 
 
-    - 개인 웹페이지 클로닝(유튜브 애니메이션 웹페이지 튜토리얼 따라하기)
+    - 개인 웹 페이지 클로닝(유튜브 애니메이션 웹 페이지 튜토리얼 따라하기)
 
 
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/2e54f5f6-ce14-4c3e-8587-77c463a25762
 
 
+## 7일차
+- HTML + CSS + js(jQuery) 응용
+    - 개인 웹 페이지 클로닝(유튜브 애니메이션 웹 페이지 튜토리얼 따라하기)
+
     
         https://github.com/LEUNSU/basic-aspnet-2024/assets/158007401/4cd981f1-69e9-4705-bc11-8f45f9c016d6
 
 
+## 8일차
+- ASP.NET 
+    - ASP.NET 역사
+        - 1990년대 MS가 웹 서버기술로 ASP(Active Server Page)를 배포 like JSP(Java Server Page)
+        - ASP는 .NET으로 된 언어가 아닌, VBScript를 사용. 확장자(.asp)
+        - 스파게티 코드! - HTML + CSS + javascript + VBscript 짬뽕으로 만든 웹 페이지
+        - 많이 사용되었지만 유지보수 어렵고, 성능이 나쁘고 ...
+
+        - 2000년대 MS가 .NET Framework를 발표
+        - C#, VB.NET, C++.NET 등의 새로운 언어를 배포, 여기에 맞춰서 웹 서버기술로 다시 만듦 -> ASP.NET
+        - 가장 큰 장점은 윈폼 개발하는 것처럼 웹 개발을 할 수 있었음
+        - 초창기에 스파게티 코드를 거의 그대로 사용. 성능도 안 좋고 ...
+        - 2009년 ASP.NET MVC(Model View Controller 디자인패턴) 공표. 성능은 좋아짐
+        - 하지만, 윈도우에서만 동작
+        - 모든 OS플랫폼에서 동작할 수 있는 .NET Core를 재출시
+        - 거기에 웹 서버기술을 또 다시 만듦 => ASP.NET Core
+
+    - .NET Core(현재는 .NET 9.0, Core라는 이름은 사용 안 함)의 장점
+        - 빠르고 오픈소스
+        - 크로스 플랫폼, OS에 종속받지 않음
+        - 성능!
+    
+    - ASP.NET 종류
+        - ~~ASP.NET Webforms - 2000년도 초반에 나오다가 사장된 웹 사이트 개발 기술~~
+        - **ASP.NET Core 웹 API : 데이터 포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드(프론트엔드가 없어서 화면이 없음)**
+        - **ASP.NET Core 웹앱(MVC) : 가장 기본적인 프론트엔드(HTML, CSS, JS .html) + 백엔드(C# .aspx.cs) 웹 사이트 개발**
+        - Js(Vue, Anguler, React) 프론트엔드 + ASP.NET Core 백엔드
+        - ~~Edge용 웹 드라이버 테스트 - 엣지 브라우저에 종속된 테스트용~~
+        - ASP.NET Core gRPC 서비스 - 고성능 원격프로시저호출(스트리밍 호출) 서비스 
+        - Blazor : Js 프론트엔드를 따라서 C# 컴포넌트 기반으로 개발하는 웹 개발 방식 웹 사이트 개발
+        - Razor : 프론트엔드 개발에 C# 코드가 특화되서 사용되는 웹 사이트 개발 방식
+        - .NET Aspire : Blazor + Redis + 웹 API 백엔드
+
+    - 참조 사이트
+        - https://learn.microsoft.com/ko-kr/aspnet/core/?view=aspnetcore-3.1
+        - https://github.com/dotnet
+        - https://mixedcode.com/
+        - https://github.com/gilbutITbook/006824
+
+    - ASP.NET Core 웹 앱(Model-View-Controller)
+        - 현재 기본적인 웹 개발의 가장 표준
+        - Java 계열도 Spring (Boot) MVC로 개발
+        - MVC 개념도
+            <IMG src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0002.png">
