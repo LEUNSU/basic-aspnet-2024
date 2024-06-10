@@ -238,8 +238,8 @@ IoT 개발자 ASP.NET 학습 리포지토리
 
         - Codehal 유튜버 로그인 웹 페이지 튜토리얼 따라하기
 
-        <img src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an001.png" width="800">
-        <!-- ![이미지](https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an001.png) -->
+        <img src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0001.png" width="800">
+        <!-- ![이미지](https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0001.png) -->
 
 
         - Codegal 슬라이더 애니메이션 웹 페이지 튜토리얼 따라하기
@@ -292,7 +292,7 @@ IoT 개발자 ASP.NET 학습 리포지토리
     - ASP.NET 종류
         - ~~ASP.NET Webforms - 2000년도 초반에 나오다가 사장된 웹 사이트 개발 기술~~
         - **ASP.NET Core 웹 API : 데이터 포털, 네이버, 카카오, 영화API 사이트를 만드는 백엔드(프론트엔드가 없어서 화면이 없음)**
-        - **ASP.NET Core 웹앱(MVC) : 가장 기본적인 프론트엔드(HTML, CSS, JS .html) + 백엔드(C# .aspx.cs) 웹 사이트 개발**
+        - **ASP.NET Core 웹앱(MVC) : 가장 기본적인 프론트엔드(HTML, CSS, JS .cshtml) + 백엔드(C# .aspx.cs) 웹 사이트 개발**
         - Js(Vue, Anguler, React) 프론트엔드 + ASP.NET Core 백엔드
         - ~~Edge용 웹 드라이버 테스트 - 엣지 브라우저에 종속된 테스트용~~
         - ASP.NET Core gRPC 서비스 - 고성능 원격프로시저호출(스트리밍 호출) 서비스 
@@ -311,3 +311,5 @@ IoT 개발자 ASP.NET 학습 리포지토리
         - Java 계열도 Spring (Boot) MVC로 개발
         - MVC 개념도
             <IMG src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0002.png">
+
+        - 프론트엔드가 예전엔 스파게티코드가 무지 심했다면, 현재는 스파게티코드가 최소화 되어있음
