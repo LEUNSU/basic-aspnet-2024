@@ -312,4 +312,45 @@ IoT 개발자 ASP.NET 학습 리포지토리
         - MVC 개념도
             <IMG src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0002.png">
 
-        - 프론트엔드가 예전엔 스파게티코드가 무지 심했다면, 현재는 스파게티코드가 최소화 되어있음
+        - 프론트엔드가 예전엔 스파게티코드가 무지 심했다면, 현재는 스파게티코드가 최소화 되어있음(SpringBoot, Python flask는 모두 동일)
+        - IIS Express Server - VS에서 ASP.NET 웹 사이트를 운영하는 개발용 웹 서버
+        - index.* : 웹 사이트 가장 대문이 되는 페이지 이름
+        - 파일 저장시 핫다시로드(HotReload) 체크
+        - @로 시작하는 C# 구문, Tag helper, Html helper로 HTML 구문 내에 C# 코드를 적어서 활용하는 방법 = Razor 구문
+        - Action == HTML에서 Form 태그 내 submit 버튼 클릭! / 링크를 클릭하는 것, 윈 앱에서 이벤트와 동일
+        - 액션이 발생한 이후 처리하는 메서드의 결과를 ActionResult
+        - 콘솔 서버로그 잘 확인할 것, 프로세스가 종료되면 웹 사이트가 실행 안 됨
+    
+    - 데이터베이스 연동방법
+        - DB first - 가장 전통적인 DB 연동방식. DB설계, DB구축, C#과 연동
+        - Code first - 최근 트렌드가 되는 DB 연동방식. C# 엔티티 클래스 작성, DB연결 설정 후 실행하면 DB에 테이블이 생성...
+        - EntityFramework를 사용하면 아주 손쉽게 구축 가능. DB를 잘 모르고 C#, ASP.NET만 알아도 DB를 핸들링 가능
+
+    - EntityFramework(Core) 설치
+        - Microsoft.EntityFrameworkCore
+        - Microsoft.EntityFrameworkCore.Tools
+        - Microsoft.EntityFrameworkCore.SqlServer
+    
+    - Code first 구현 순서
+        - ASP.NET 프로젝트 생성
+        - EF 패키지 설치
+        - 엔티티 클래스 작성
+        - appsettings.json에 DB연결문자열 추가
+        - Data/ApplicationDbContext.cs 중간연결 클래스 생성
+        - Program.cs에 Service 내에 DbContext 종속성을 주입
+        - NuGet 패키지 관리자 > 패키지 관리자 콘솔 실행 
+            ```shell
+            PM> Add-Migration 마이그레이션명
+            Build started...
+            Build succeeded.
+            ...
+            PM> Update-Database
+            ...
+            Done.
+            ```
+## 9일차
+- ASP.NET Core MVC
+    - 필요 이론
+    - 연습
+    - 개인 포트폴리오 웹 사이트
+    - Bootstrap 테마 적용
