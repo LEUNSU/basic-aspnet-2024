@@ -4,6 +4,15 @@
     ViewData["Title"] = "Board";
 }
 
+@{
+    var startPage = ViewBag.StartPage;
+    var endPage = ViewBag.EndPage;
+    var page = ViewBag.Page;
+    var totalPage = ViewBag.TotalPage;
+
+    var num = ViewBag.TotalCount - ((page - 1) * 10); // 전체 게시글 수를 (현재 페이지 - 1)값과 페이지당 게시글 수 곱을 빼기
+}
+
 <style>
     /* 마우스가 없을땐 밑줄없이 */
     a {
@@ -19,18 +28,30 @@
 
 <section class="py-5">
     <div class ="container px-5">
-        <p>
-            <a asp-controller="Board" asp-action="Create" class="btn btn-primary">
-                <i class="bi bi-file-earmark-plus-fill"></i>&nbsp;글 작성
-            </a>
-        </p>
+            <div class="row justify-content-between p-2">
+                <div class="col-3">
+                    <a asp-controller="Board" asp-action="Create" class="btn btn-primary">
+                        <i class="bi bi-file-earmark-plus-fill"></i>&nbsp;글 작성
+                    </a>
+                </div>
+                <div class="col-9 text-end">
+                    <form asp-action="Index" method="GET">
+                        <label for="Search"></label>
+                    <input id="search" name="search" value="@ViewBag.Search" class="form-control-sm" />
+                        <button type="submit" class="btn btn-success">검색</button>
+                    </form>
+                </div>
+            </div>
         <table class="table table-striped">
             <thead>
                 <tr class="table-primary">
+                    <th style="width:3rem;">
+                        번호
+                    </th>
                     <th style="width:8rem;">
                         @Html.DisplayNameFor(model => model.Name)
                     </th>
-                    <th style="width:10rem;">
+                    <th style="width:8rem;">
                         @Html.DisplayNameFor(model => model.UserId)
                     </th>
                     <th style="width:17rem;">
@@ -42,10 +63,10 @@
                     <th style="width:6rem;">
                         @Html.DisplayNameFor(model => model.Hit)
                     </th>
-                    <th style ="width:8rem;">
+                    <th style ="width:7rem;">
                         @Html.DisplayNameFor(model => model.RegDate)
                     </th>
-                    <th style="width:8rem;">
+                    <th style="width:7rem;">
                         @Html.DisplayNameFor(model => model.ModDate)
                     </th>
                     @* <th></th> *@
@@ -55,6 +76,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td class="text-end pe-4">@(num--)</td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
@@ -92,5 +114,73 @@
                 }
             </tbody>
         </table>
+        
+        <!-- 페이징컨트롤 -->
+        <nav class="text-center">
+            <ul class="pagination justify-content-center">
+                @if (startPage > 1) // 맨 첫페이지 버튼
+                {
+                    <li class="page-item">
+                        <a href="?page=1&search=@ViewBag.Search" class="page-link"> ≪ </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link"> ≪ </span>
+                    </li>
+                }
+
+                @if (page > 1) // 이전페이지 버튼
+                {
+                    <li class="page-item">
+                        <a href="?page=@(page-1)&search=@ViewBag.Search" class="page-link"> ＜ </a>
+                    </li>
+                }
+
+                @for (var i = startPage; i <= endPage; i++) // 페이지번호 반복출력
+                {
+                    if (i == page)
+                    {
+                        <li class="page-item">
+                            <span class="page-link active">@i</span>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a href="?page=@i&search=@ViewBag.Search" class="page-link">@i</a>
+                        </li>
+                    }
+                }
+
+                @if (page < totalPage)
+                {
+                    <li class="page-item">
+                        <a href="?page=@(page+1)&search=@ViewBag.Search" class="page-link"> ＞ </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link"> ＞ </span>
+                    </li>
+                }
+
+                @if (endPage < totalPage)
+                {
+                    <li class="page-item">
+                        <a href="?page=@totalPage&search=@ViewBag.Search" class="page-link"> ≫ </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link"> ≫ </span>
+                    </li>
+                }
+            </ul>
+        </nav>
+    
     </div>
 </section>
