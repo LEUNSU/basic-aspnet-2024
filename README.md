@@ -467,6 +467,10 @@ IoT 개발자 ASP.NET 학습 리포지토리
 
             
 
+        https://github.com/user-attachments/assets/546f7a5c-ad24-406d-865e-c48fcd30c02a
+
+
+
     5. 검색
         - FromSqlRaw() 메서드 변경
         - html 링크에 ?page=1&search=검색어 추가
