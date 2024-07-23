@@ -479,7 +479,7 @@ IoT 개발자 ASP.NET 학습 리포지토리
         - Create.cshtml, Edit.cshtml은 동일하게 작업
         - NuGet패키지 Westwind.AspNetCore.Markdown 검색
 
-        <img src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0005.png" width="600">
+        <img src="https://raw.githubusercontent.com/LEUNSU/basic-aspnet-2024/main/images/an0005.png" width="800">
 
 
 ## 12일차
