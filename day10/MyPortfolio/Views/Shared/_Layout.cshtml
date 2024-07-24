@@ -39,6 +39,14 @@
                         <li class="nav-item"><a class="nav-link" asp-controller="Project" asp-action="Index">PROJECTS</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Board" asp-action="Index">BOARD</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">CONTACT</a></li>
+                        @if (Context.Session.GetInt32("USER LOGIN KEY") == null)
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Login">LOGIN</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Loout">LOOUT</a></li>
+                        }
                     </ul>
                 </div>
             </div>
