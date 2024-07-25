@@ -501,13 +501,49 @@ IoT 개발자 ASP.NET 학습 리포지토리
         5. Program.cs에 로그인 세션 설정
         6. _layout.cshtml 로그인/로그아웃 메뉴 추가
         7. HomeController.cs Login/Logout 액션메서드 작성
-        8. Login.cshtml
-        9. Register.cshtml 회원가입 페이지
+        8. Login() 액션메서드 마우스오른쪽 버튼 뷰생성 cshtml
+        9. bootstrap 사이트에서 예제 파일 다운로드
+        10. sign-in 폴더 내 index.html. sign-in.css Static경로(wwwroot) 복사
+        11. Login.schtml을 위의 파일 참조해서 수정
+        12. HomeController.cs에 Register() 액션메서드 작성
+        13. Register.cshtml 회원가입 페이지 생성
 
-    3. 이력서, 프로젝트, 컨텍트 페이지 구현하기
-    3. 관리자모드/페이지
-    4. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
-    5. AWS 라이트세일로 웹사이트 공개하기
-    6. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기
+
+## 13일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. 회원가입 계속...
+        1. Register.html에 asp-for 등 C# Razor tag로 변경
+        2. HomeController.cs Register Post 메서드 작성
+        3. Login.cshtml에 C# Razor tag로 변경
+        4. HomeController.cs Login Post 메서드 작성
+        5. Logout Get 메서드 추가
+
+    2. 게시판 글 오류 수정
+        1. Board.cs에 있는 Name, UserID를 삭제, User?로 변경, UserName을 virtual 추가
+        2. BoardController.cs에 있는 Board 클래스와 관련된 변수도 삭제
+        3. Views/Board/*.cshtml Name, UserID를 삭제, 변경
+        4. BoardController.cs 게시글 리스트 쿼리 변경
+        5. Views/Board/*.cshtml 수정
+        6. BoardController.cs에 Create Post 메서드에 사용자데이터 추가 수정
+
+    3. 프로젝트 파일 업로드
+        1. Project.cs 모델 생성
+        2. AppDbContext.cs에 DbSet<Project> 추가
+        3. Add-Migration, Update-Database
+        4. ProjectController, View 생성
+        5. Views/Project/Create.cshtml 수정
+        6. ProjectController, Create Post 메서드 수정
+
+
+## 14일차
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. AWS 라이트세일로 웹사이트 공개하기
+    2. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
+    3. 프로젝트 화면 DB연동하기
+    4. Contact 메일 보내기(네이버 연동)
     
     4. 머신러닝, 딥러닝 안 배워도 할 수있는 AI
+
+## 15일차    
+- ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
+    1. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기

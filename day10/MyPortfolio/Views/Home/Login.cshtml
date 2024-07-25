@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/css/sign-in.css"/>
 
 <main class="form-signin w-100 m-auto">
-    <form asp-action="Login">
+    <form asp-action="Login" method="post">
         <img class="mb-4" src="~/assets/bootstrap-logo.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">로그인</h1>
 
@@ -39,57 +39,6 @@
     </div>
 
     <div class="text-center">
-        <a asp-controller="Home" asp-action="Resigter" class="btn btn-dark">회원가입</a>
+        <a asp-controller="Home" asp-action="Register" class="btn btn-dark">회원가입</a>
     </div>
 </main>
-
-@* <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserEmail" class="control-label"></label>
-                <input asp-for="UserEmail" class="form-control" />
-                <span asp-validation-for="UserEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PasswordCheck" class="control-label"></label>
-                <input asp-for="PasswordCheck" class="form-control" />
-                <span asp-validation-for="PasswordCheck" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNum" class="control-label"></label>
-                <input asp-for="PhoneNum" class="form-control" />
-                <span asp-validation-for="PhoneNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegDate" class="control-label"></label>
-                <input asp-for="RegDate" class="form-control" />
-                <span asp-validation-for="RegDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div> *@
-

@@ -14,5 +14,6 @@ namespace MyPortfolio.Data
         public DbSet<Board> Board { get; set; }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Project> Project { get; set; }
     }
 }

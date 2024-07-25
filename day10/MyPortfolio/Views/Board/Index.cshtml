@@ -5,71 +5,71 @@
 }
 
 @{
+    // BoardController / Index 액션메서드에서 넘어온 값
     var startPage = ViewBag.StartPage;
     var endPage = ViewBag.EndPage;
     var page = ViewBag.Page;
     var totalPage = ViewBag.TotalPage;
 
-    var num = ViewBag.TotalCount - ((page - 1) * 10); // 전체 게시글 수를 (현재 페이지 - 1)값과 페이지당 게시글 수 곱을 빼기
+    var num = ViewBag.TotalCount - ((page - 1) * 10); // 전체 게시글 수를 (현재페이지 - 1)값과 페이지당 게시글 수 곱을 빼기
 }
-
 <style>
-    /* 마우스가 없을땐 밑줄없이 */
+    /* 마우스가 없을 땐 밑줄없이 */
     a {
         color: black;
         text-decoration: none;
     }
 
-    /* 마우스가 올라갔을때만 밑줄 */
-    a:hover {
-        text-decoration: underline;
-    }
+        /* 마우스가 올라갔을때만 밑줄 */
+        a:hover {
+            text-decoration: underline;
 </style>
 
+
 <section class="py-5">
-    <div class ="container px-5">
-            <div class="row justify-content-between p-2">
-                <div class="col-3">
+    <div class="container px-5">
+        <div class="row justify-content-between p-2">
+            <div class="col-3">
+                @if (Context.Session.GetInt32("USER_LOGIN_KEY") != null)
+                {
                     <a asp-controller="Board" asp-action="Create" class="btn btn-primary">
                         <i class="bi bi-file-earmark-plus-fill"></i>&nbsp;글 작성
                     </a>
-                </div>
-                <div class="col-9 text-end">
-                    <form asp-action="Index" method="GET">
-                        <label for="Search"></label>
-                    <input id="search" name="search" value="@ViewBag.Search" class="form-control-sm" />
-                        <button type="submit" class="btn btn-success">검색</button>
-                    </form>
-                </div>
+                }
             </div>
+            <div class="col-9 text-end">
+                <form asp-action="Index" method="GET">
+                    <label for="Search"></label>
+                    <input id="search" name="search" value="@ViewBag.Search" class="form-control-sm" />
+                    <button type="submit" class="btn btn-success">검색</button>
+                </form>
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
-                <tr class="table-primary">
-                    <th style="width:3rem;">
+                <tr class="table table-primary">
+                    <th style="width:3rem">
                         번호
                     </th>
-                    <th style="width:8rem;">
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th style="width:8rem;">
-                        @Html.DisplayNameFor(model => model.UserId)
+                    <th style="width:10rem;">
+                        @Html.DisplayNameFor(model => model.UserName)
                     </th>
                     <th style="width:17rem;">
                         @Html.DisplayNameFor(model => model.Title)
                     </th>
                     @* <th>
-                        @Html.DisplayNameFor(model => model.Contents)
-                    </th> *@
+                    @Html.DisplayNameFor(model => model.Contents)
+                    </td> *@
                     <th style="width:6rem;">
                         @Html.DisplayNameFor(model => model.Hit)
                     </th>
-                    <th style ="width:7rem;">
+                    <th style="width:8rem;">
                         @Html.DisplayNameFor(model => model.RegDate)
                     </th>
-                    <th style="width:7rem;">
+                    <th style="width:8rem;">
                         @Html.DisplayNameFor(model => model.ModDate)
                     </th>
-                    @* <th></th> *@
+                    @*  <th></th> *@
                 </tr>
             </thead>
             <tbody>
@@ -78,19 +78,16 @@
                     <tr>
                         <td class="text-end pe-4">@(num--)</td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.UserName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.UserId)
-                        </td>
-                        <td>
-                            <a asp-controller="Board" asp-action="Details" asp-route-id="@item.Id">
+                            <a asp-asp-controller="Board" asp-action="Details" asp-route-id="@item.Id">
                                 @Html.DisplayFor(modelItem => item.Title)
                             </a>
                         </td>
                         @* <td>
-                            @Html.DisplayFor(modelItem => item.Contents)
-                        </td> *@
+                    @Html.DisplayFor(modelItem => item.Contents)
+                    </td> *@
                         <td class="text-end pe-5">
                             @Html.DisplayFor(modelItem => item.Hit)
                         </td>
@@ -99,22 +96,22 @@
                             @Convert.ToDateTime(item.RegDate).ToString("yyyy-MM-dd")
                         </td>
                         <td>
-                            @* @Html.DisplayFor(modelItem => item.ModTime) *@
+                            @* @Html.DisplayFor(modelItem => item.ModDate) *@
                             @if (item.ModDate != null)
                             {
                                 @Convert.ToDateTime(item.ModDate).ToString("yyyy-MM-dd")
                             }
                         </td>
                         @* <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td> *@
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td> *@
                     </tr>
                 }
             </tbody>
         </table>
-        
+
         <!-- 페이징컨트롤 -->
         <nav class="text-center">
             <ul class="pagination justify-content-center">
@@ -131,10 +128,16 @@
                     </li>
                 }
 
-                @if (page > 1) // 이전페이지 버튼
+                @if (page > 1)  // 이전 페이지 버튼
                 {
                     <li class="page-item">
-                        <a href="?page=@(page-1)&search=@ViewBag.Search" class="page-link"> ＜ </a>
+                        <a href="?page(page-1)&search=@ViewBag.Search" class="page-link"> ＜ </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link"> ＜ </span>
                     </li>
                 }
 
@@ -176,11 +179,10 @@
                 else
                 {
                     <li class="page-item disabled">
-                        <span class="page-link"> ≫ </span>
+                        <a class="page-link"> ≫ </a>
                     </li>
                 }
             </ul>
         </nav>
-    
     </div>
 </section>

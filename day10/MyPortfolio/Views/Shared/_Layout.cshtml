@@ -36,16 +36,19 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                         <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">HOME</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Resume" asp-action="Index">RESUME</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Project" asp-action="Index">PROJECTS</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Project">PROJECTS</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Board" asp-action="Index">BOARD</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Contact" asp-action="Index">CONTACT</a></li>
-                        @if (Context.Session.GetInt32("USER LOGIN KEY") == null)
+                        @if (Context.Session.GetInt32("USER_LOGIN_KEY") == null)
                         {
                             <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Login">LOGIN</a></li>
                         }
                         else
                         {
-                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Loout">LOOUT</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Logout">
+                                    [(@Context.Session.GetString("USER_EMAIL")] LOGOUT
+                                </a>
+                            </li>
                         }
                     </ul>
                 </div>
