@@ -543,13 +543,189 @@ IoT 개발자 ASP.NET 학습 리포지토리
 
 ## 14일차
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
-    1. AWS 라이트세일로 웹사이트 공개하기
-    2. 자신 컴퓨터 IIS 서버에 웹사이트 올리기
-    3. 프로젝트 화면 DB연동하기
-    4. Contact 메일 보내기(네이버 연동)
-    
-    4. 머신러닝, 딥러닝 안 배워도 할 수있는 AI
+    1. AWS 라이트세일로 윈도우서버 인스턴스 만들기
+        1. 구글 AWS 라이트세일 검색
+        2. AWS 프리티어로 회원가입
+        3. AWS 라이트세일로 로그인
+        4. 루트 사용자로 로그인
+        5. 인스턴스 생성
+            - Linux/Unix는 라즈비안과 거의 동일
+            - MS Windows OS 전용 > Windows Server 2016 선택
+            - 무료 중 가장 성능이 좋은거 선택
+            - 인스턴스 확인 이름 변경
+            - 인스턴스 생성 클릭
+        6. 인스턴스 관리
+            - 관리로 진입
+            - 네트워킹 탭 > 고정 IP 연결 클릭
+            - 자신 고정아이피
+            - Administrator
+            - 비번 확인
+        7. 원격 데스트톱 연결
+            - 컴퓨터: 고정아이피 주소
+            - Network2 Yes 클릭
+            - 서버 매니저 오픈
+            - IE Enhanced Security Config. ON->OFF
+            - 인터넷 익스플로러 오픈 구글
+            - 크롬 브라우저 설치
+            - FileZilla Server 검색/ 설치
+        8. 파일질라 서버 설정
+            - 메뉴 > Configure 클릭
+            - Server listners > 0.0.0.0 -> 내부 아이피로 변경
+            - FTP and FTP over TLS 
+            - Generate New > Disting,../HostName 입력, 새로 생성
+            - Passive Mode 사용
+                - From : 55000
+                - To : 55999
+            - User 생성
+                - MountPoint
+                    - Virtual path : /
+                    - Native path : 본인 지정
+                - Authentication : Required Password
+                - 패스워드 입력 후 Apply
+        9. 윈도우 방화벽 설정
+            - Control Panel(제어판)
+            - Windows Firewall > Advanced Setting
+            - Inbound : 21, 55000-55999 열기
 
-## 15일차    
+        10. AWS 방화벽 설정
+            - 네트워킹 IPv4 방화벽
+            - 21 포트 규칙추가
+            - 55000-55999 포트 규칙추가
+
+        11. 사용PC에서 파일질라 클라이언트 설치
+            - 기본 설치
+            - 사이트 관리자 
+                - 새 사이트만들고
+                - 호스트 : AWS pubilc ip
+                - 사용자, 비번 : Filezilla server 설정한 사용자 계정
+                - 전송설정 수동형 선택
+
+        12. Visual Studio ASP.NET Core 게시
+            - 프로젝트 > MRB > 게시 클릭
+            - FTP/FTPS 서버 선택 > 다음
+            - 서버 : aws public ip
+            - 사이트 경로 : /
+            - 수동모드
+            - 사용자이름 패스워드 입력, 암호저장
+            - 연결 유효성 검사 > 녹색체크
+            - 게시 하면 됨            
+
+        13. SQL Server 다운로드
+            - 윈도우 서버 패스워드 정책 변경
+                - 8문자이상 특수문자1자이상 영어대소문자
+            - secpol.msc 보안정책
+            - 패스워드 정책 변경 enabled -> disabled
+            - 설치 후 SQL Config Manager
+            - Network configuration
+                - TCP/IP enable
+            - 서버 재시작
+            - 윈도우 방화벽, AWS 방화벽 1433포트 오픈
+            - SSMS 접속 확인
+
+        14. IIS(Interner Information Service)
+            - ASP, ASP.NET 종류 웹서버 
+            - Server Manager 오픈
+            - Add Roles and Features 클릭
+            - 기본 선택 Next
+            - Select Server Roles
+                - IIS Server 선택 다음
+                - 기본 설치 
+
+        15. SQL Server를 복제
+            - SSMS 로컬 DB를 접속
+            - 서버 종료
+            - EMS.mdf, EMS_log.ldf 복사
+            - FTP로 전송
+
+        16. IIS 서버에서 ASP.NET 실행
+            - 제어판 열기
+            - Administraiton Tools
+            - IIS 오픈
+            - Default Web > Basic Setting 사이트 경로 변경
+                - C:\Websites\MyPorfolio 
+            - 폴더 설정 > Secuiry 탭
+                - IIS_IUSERS 그룹 설정 추가
+
+            - 구글에서 ASP.NET 코어 런타임 8 검색 다운로드
+                - aspnetcore-runtime-8.0.7-win-x64.exe
+                - dotnet-hosting-8.0.7-win.exe
+
+            - IIS - Application Pool
+                - ASPNETCore 애플리케이션 풀 생성
+                - .NET CLR Version > No Managed... 선택
+                - IIS 재시작
+
+        17. 다음부터는 
+            - Visual Studio 개발
+            - Visual Studio 게시
+            - DB가 변경되었으면, mdf, ldf를 FTP로 업로드
+            - SQL 서버 중지 파일 이동
+
+## 15일차(2024-07-30)
 - ASP.NET Core 포트폴리오 웹사이트, MyPortfolio
-    1. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기
+    1. 프로젝트 화면 DB연동하기
+        - 지난 목요일 만들었던 것 확인
+        - ProjectController.cs Create() Post 메서드 수정
+        - 업로드 확인
+        - Edit.cshtml은 Create.cshtml과 동일하게 수정
+        - Edit() Post 메서드 역시 동일 -> DB에 프로젝트 내용 추가 
+
+        - HomeController.cs Project() Get 메서드에 DB연동 내용 추가
+        - Views/Home/Project.cshtml DB연동 내용 추가 -> 프로젝트에 DB내용 표시
+
+    2. Contact 이미지 올리기
+        - 이미지 올리기 중간 모델(클래스) 하나 필요 - TemProject
+        - Project.cshtml 부트스트랩 클래스 수정
+
+    3. Contack 메일보내기(네이버 연동)
+        - 구글, 네이버 동일 - 메일계정 2단계보안 설정
+        - 네이버메일 환경설정 -> POP3/SMTP 설정 사용함 변경
+        - 아래 코드를 해당 Post 메서드 대입
+        ```cs
+        try
+        {
+            MailMessage mailMessage = new MailMessage();
+
+            mailMessage.From = new MailAddress("보내는 계정 주소", "표시 이름", System.Text.Encoding.UTF8);
+            // 받는이 메일 주소
+            mailMessage.To.Add("yyy@naver.com");
+            // 참조 메일 주소
+            mailMessage.CC.Add("zzz@naver.com");
+            // 비공개 참조 메일 주소
+            mailMessage.Bcc.Add("kkk@naver.com");
+            // 제목
+            mailMessage.Subject = "메일 제목";
+            // 메일 제목 인코딩 타입(UTF-8) 선택
+            mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
+            // 본문
+            mailMessage.Body = "메일 본문";
+            // 본문의 포맷에 따라 선택
+            mailMessage.IsBodyHtml = false;
+            // 본문 인코딩 타입(UTF-8) 선택
+            mailMessage.BodyEncoding = System.Text.Encoding.UTF8;
+            // 파일 첨부
+            mailMessage.Attachments.Add(new Attachment(new FileStream(@"D:\test.zip", FileMode.Open, FileAccess.Read), "test.zip"));
+            // SMTP 서버 주소
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            // SMTP 포트
+            SmtpServer.Port = 587;
+            // SSL 사용 여부
+            SmtpServer.EnableSsl = true;
+            SmtpServer.UseDefaultCredentials = false;
+            SmtpServer.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("아이디", "패스워드");
+
+            SmtpServer.Send(mailMessage);
+        }
+        catch (Exception ex)
+        {
+            // 에러메시지 HTML
+        }
+        ``` 
+ 
+    4. 부트스트랩 템플릿 커스터마이징, 자기 포트폴리오 사이트 만들기
+        - 구글에서 부트스트랩 템플릿 검색
+            - https://bootstraptaste.com/
+            - https://startbootstrap.com/
+            - https://themewagon.com/themes/
+            - https://getbootstrap.com/docs/5.0/examples/

@@ -19,6 +19,5 @@ namespace MyPortfolio.Models
 
         // 300x500 or 600 이미지
         public string? FilePath { get; set; }
-
     }
 }
